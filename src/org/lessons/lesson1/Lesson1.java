@@ -85,6 +85,7 @@ public class Lesson1 {
         //обрезка
         String word3 = "  s             kaka          ";
         System.out.println(word3.trim());
+        System.out.println("тест 2");
 
 
 
