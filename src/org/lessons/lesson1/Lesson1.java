@@ -87,6 +87,8 @@ public class Lesson1 {
         System.out.println(word3.trim());
         System.out.println("тест 2");
         System.out.println("тест 3");
+        System.out.println("тест 4");
+
 
 
 
