@@ -1,6 +1,6 @@
 package org.lessons.lesson2;
 
-public class Homework1 {
+public class homework1 {
     public static void main(String[] args) {
         //Базовый уровень
         //Задача №1
@@ -8,6 +8,7 @@ public class Homework1 {
         String hi = "                Hello ";
         String world = " WoRld!";
         char newLine = '\n';
+        System.out.println((hi.trim() + world.toLowerCase() + newLine).repeat(3));
         //Создать из трех переменных единую строку,
         //Привести к правильному виду (Ниже), убрать лишние слова,
         //затроить (Можно вызвать тольку одну команду System.out.print())
@@ -22,14 +23,33 @@ public class Homework1 {
         //Произвести расчет индекса массы тела (вес) / (рост * рост) используя переменные, вывести на экран
         //Пример результата вывода на экран:
         //21.0
+        float height = 1.54f;
+        float weight = 176f;
+        float bmi = weight / (height * height);
+        String resultBmi = String.format("%.1f", bmi).replace(',', '.');
+        System.out.println(resultBmi);
 
         //Задача №3
         //Создать из массива букв a,b,c,d,e, строку,вывести на экран, поменять в массиве 4 букву по счету на h,
         //и снова создать строку, вывести на экран
+        String[] seasons = {"a", "b", "c", "d", "e"};
+
+
+        for (String sea: seasons) {
+            System.out.print(sea);
+
+        }
+        seasons[3] = "h";
+        for (String sea: seasons) {
+            System.out.print(sea);
+        }
 
         // Домашка
         // Задание №4 - Написать цикл, который выводит через пробел 100 чисел с приставкой "a".
         // Ожидаемый результат: 1а 2а 3а .. 100а
+        for (int i = 1; i < 101; i++) {
+            System.out.print(i + "a ");
+        }
 
         // Задание №5
         // Дано:
@@ -38,14 +58,32 @@ public class Homework1 {
         // если ребенку до 6 лет то в сад, если до 11 лет в младшую школу, если до 17 лет в среднюю школу, иначе в университет
         // Отправляет - имеется в виду, печатает на экран: "пошел с сад", "пошел в младшую школу" и т.д.
         // Проверьте работоспособность условий, через изменение значения переменной.
+        if (ageChildren < 6) {
+            System.out.println("Пошёл в сад");
+        } else if (ageChildren < 11) {
+            System.out.println("Пошёл в начальную школу");
+        } else if (ageChildren < 17) {
+            System.out.println("Пошёл в среднюю школу");
+        } else {
+            System.out.println("УНИВЕР!!!");
+        }
 
 
         //Продвинутый уровень (Для тех, кто имеет опыт или базовая очень простая)
         //Задача №1
         //Произвести преобразование "234" в число типа int и прибавить к этому числу длину строки "some_text"
+        String number = "234";
+        int numberTransformation = Integer.parseInt(number);
+        String text = "some_text";
+        System.out.println(numberTransformation + text.length());
 
         //Задача №2
         //Посчитать (a+b)^2 = ?, при a=3, b=5
+        int a = 3;
+        int b = 5;
+        int summ = (a + b) * (a + b);
+        System.out.println(summ);
+
 
         //Задача №3
         //Создать два массив чисел:
@@ -58,9 +96,28 @@ public class Homework1 {
         //1,2,5,7,10,2,3,2,17,15,2,6,10,119,150
         //(первый массив - 1,2,5,7,10), (второй массив - 2,3,2,17,15),
         //(результат перемножения - (1*2), (2*3), (5*2), (7*17), (10*15)
+        int[] firstArray = {1, 2, 5, 7, 10};
+        int[] secondArray = {2, 3, 2, 17, 15};
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print(firstArray[i] + ",");
+        }
+        for (int i = 0; i < 5; i++) {
+            System.out.print(secondArray[i] + ",");
+
+        }
+        for (int i = 0; i < 4; i++) {
+            System.out.print(firstArray[i] * secondArray[i] + ",");
+
+        }
+        System.out.print(firstArray[4] * secondArray[4]);
 
         //Задача №4
         //В слове "Hello world!" заменить l на r, сделать все буквы заглавными, выбрать первые 8 символов
+
+        String hw = "Hello world";
+        String nhw = hw.replaceAll("l", "r").substring(0, 8).toUpperCase();
+        System.out.println(nhw);
 
         // Задание №5: Написать цикл, который будет прибавлять число к result до тех пор,
         // пока не получиться больше 1_000_000.
@@ -70,12 +127,20 @@ public class Homework1 {
         // Вывести на экран, количество итераций, которое потребовалось, чтобы дойти до миллиона.
         // Если число отрицательное, то сразу заканчиваем цикл, ничего не выводя.
         // Внимание: число может измениться, и не должно приводить к изменению вашего кода.
+        while (result < 0.1) {
+            if (result < 0) {
+                break;
+            }
+            result += increment;
+
+        }
+        System.out.println();   //ДО КОНЦА НЕ СМОГ РЕШИТЬ.
 
         // Задание №6
         // Дано:
         boolean chicken = true;
         boolean vegetables = false;
-        boolean sour = true;
+        boolean sauce = true;
         boolean toast = true;
         boolean sausage = true;
         boolean eggs = true;
@@ -87,6 +152,18 @@ public class Homework1 {
         // Написать набор условий, приготовления салатов, по приоритету (от Цезаря к овощному). Либо объявить о невозможности сделать салат.
         // Ожидаемый результат: вывод на экран сделанного салата или объявление о том, что ничего нет.
         // Проверьте работоспособность условий, через изменение значения переменных.
+        if (chicken && vegetables && sauce && toast) {
+            System.out.println("Приготовлю как я салат Цезарь");
+        } else if (vegetables && (chicken || sausage) && eggs) {
+            System.out.println("Хоть на оливьешку хватило остатков");
+        } else if (vegetables) {
+            System.out.println("Вот, овощной салат!");
+        }
+        else {
+            System.out.println("У меня ничего нет, сидим голодные");
+        }
+
+
 
         //Внимание! Если продвинутая для вас оказалась простой - пишите мне. Дам экспертную
     }
