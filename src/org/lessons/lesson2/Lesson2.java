@@ -1,6 +1,9 @@
 package org.lessons.lesson2;
 
-public class lesson2 {
+import org.lessons.lesson1.Lesson1;
+import org.lessons.lesson3.Lesson3;
+
+public class Lesson2 {
     public static void main(String[] args) {
         int number1 = 10;
         int number2 = 9;
@@ -94,6 +97,7 @@ public class lesson2 {
                 }
                 count3--;
             }
+            Lesson3.main(new String[4]);
 
 
         }

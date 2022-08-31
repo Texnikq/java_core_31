@@ -4,6 +4,9 @@ public class Plane {
     private int countPassengers;
     private int countWorkers;
 
+
+
+
     public Plane(int passengers, int workers) {
         this.countPassengers = passengers;
         this.countWorkers = workers;
