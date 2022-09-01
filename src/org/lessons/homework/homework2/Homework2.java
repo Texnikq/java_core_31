@@ -5,6 +5,23 @@ public class Homework2 {
         // Задание №1
         // Создать два класса, которые описывают какое либо животное (каждый имеет минимум два атрибута).
         // Написать к ним конструктор, сеттеры, геттеры.
+        Lion lion = new Lion(4, "мясо");
+        Opposum opposum = new Opposum(5, 90);
+
+        lion.getInfo();
+        System.out.println();
+        opposum.getInfo();
+
+        lion.getFavoriteFood();
+        lion.setSumPaws(5);
+        opposum.getBodyLength();
+
+        System.out.println();
+
+        lion.getInfo();
+        System.out.println();
+        opposum.getInfo();
+
 
 
         // Задание №2
