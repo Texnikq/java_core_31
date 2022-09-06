@@ -1,4 +1,4 @@
-package org.lessons.homework.homework2;
+package org.lessons.homework.homework2.base.task1;
 
 public class Opposum {
 

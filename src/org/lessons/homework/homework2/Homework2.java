@@ -1,5 +1,18 @@
 package org.lessons.homework.homework2;
 
+import org.lessons.homework.homework2.advance.task1.Storage;
+import org.lessons.homework.homework2.advance.task1.Worker;
+import org.lessons.homework.homework2.advance.task2.CarFactory;
+import org.lessons.homework.homework2.advance.task2.Lada;
+import org.lessons.homework.homework2.advance.task2.Toyota;
+import org.lessons.homework.homework2.base.task1.Lion;
+import org.lessons.homework.homework2.base.task1.Opposum;
+import org.lessons.homework.homework2.base.task3.BigCircle;
+import org.lessons.homework.homework2.base.task3.Circle;
+import org.lessons.homework.homework2.expert.task1.Human;
+import org.lessons.homework.homework2.expert.task2.Car;
+import org.lessons.homework.homework2.expert.task2.CarShop;
+
 public class Homework2 {
     public static void main(String[] args) {
         // Задание №1
@@ -23,7 +36,6 @@ public class Homework2 {
         opposum.getInfo();
 
 
-
         // Задание №2
         // Создать следующие классы
         // 1. Electronic (имеет метод on и off - включает/выключает электрический прибор,
@@ -36,6 +48,16 @@ public class Homework2 {
         //Задание №3
         //Создать класс Circle с атрибутом - radius
         //Создать класс BigCircle - который не принимает атрибутов, но создает круг с размером 10.
+        Circle circle = new Circle(10);
+        circle.getRadius();
+        System.out.println(circle.getRadius());
+        circle.setRadius(15);
+        System.out.println(circle.getRadius());
+        BigCircle bigCircle = new BigCircle();
+        System.out.println(bigCircle.getRadius());
+        bigCircle.setRadius(11);
+        System.out.println(bigCircle.getRadius());
+
 
         //Продвинутая домашка
         // Задание №1:
@@ -46,6 +68,24 @@ public class Homework2 {
         // Работник берет из склада товар, на складе товар уменьшается. Работник когда взял товар, выводит на экран
         // "Ура я испортил водку!" и добавляет к себе в журнал количество испорченного товара.
         // У склада есть только одна позиция - Водка.
+        Storage storage = new Storage(500);
+        Worker worker = new Worker("Petr");
+        Worker worker1 = new Worker("Ivan");
+        Worker worker2 = new Worker("Igor");
+        worker.brokeVodka(storage);
+        worker.brokeVodka(storage);
+        worker1.brokeVodka(storage);
+        worker1.brokeVodka(storage);
+        worker1.brokeVodka(storage);
+        worker1.brokeVodka(storage);
+        worker2.brokeVodka(storage);
+        worker2.brokeVodka(storage);
+        worker2.brokeVodka(storage);
+        System.out.println(worker);
+        System.out.println(worker1);
+        System.out.println(worker2);
+        System.out.println(storage);
+
 
         //Задача №2 (Прочитать про полиморфизм и instanceof)
         //Дано: у нас есть две модели машин - жигули и toyota. Каждая из этих машин умеет: начинать движение,
@@ -58,6 +98,27 @@ public class Homework2 {
         // 4. Создать 20 тойот, 20 жигулей с помощью CarFactory, положить их в один массив.
         // 5. Пройтись по массиву, проверить к какому классу принадлежит машина, привести тип к классу машины
         // и вызвать характерные для нее методы.
+        org.lessons.homework.homework2.advance.task2.Car[] cars = new org.lessons.homework.homework2.advance.task2.Car[40];
+        for (int i = 0; i < 20; i++) {
+            cars[i] = CarFactory.createLada();
+            cars[i + 20] = CarFactory.createToyota();
+        }
+        for (org.lessons.homework.homework2.advance.task2.Car car : cars) {
+            if (car instanceof Lada) {
+                Lada lada = (Lada) car;
+                lada.broke();
+            } else if (car instanceof Toyota) {
+                Toyota toyota = (Toyota) car;
+                toyota.turnMusic();
+            }
+        }
+
+
+        Human.HumanBuilder builder = Human.builder();
+        Human petr = builder.age(10).name("petr").weight(50).build();
+        petr.info();
+
+
 
         //Экспертный уровень:
         //Задача №1
@@ -75,6 +136,7 @@ public class Homework2 {
         // human.info()
         // Петр - возраст 20, вес 80
 
+
         //Задача №2
         // Реализовать паттерн Decorator для класса Car (атрибут - стоимость, метод - вывести на экран стоимость).
         // Метод вывести на экран стоимость - выкидывает ошибку, если стоимость меньше 0
@@ -90,5 +152,13 @@ public class Homework2 {
         // Здравствуй клиент, цена этого авто (Вызвано из объекта CarShop):
         // Неизвестна мне - (вызванно из объекта Car)
         // Давайте посмотрим другое авто? (Вызвано из объекта CarShop)
+        Car car = new Car(5000);
+        CarShop carShop = new CarShop(car);
+        carShop.sellCar();
+
+
+
     }
-}
+    }
+
+
