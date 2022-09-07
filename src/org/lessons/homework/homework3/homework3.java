@@ -1,11 +1,15 @@
 package org.lessons.homework.homework3;
 
+import org.lessons.homework.homework3.advance.task1.Fern;
+import org.lessons.homework.homework3.advance.task1.Fir;
+import org.lessons.homework.homework3.advance.task1.Pine;
+import org.lessons.homework.homework3.advance.task1.Rose;
 import org.lessons.homework.homework3.base.task1.Airplane;
 import org.lessons.homework.homework3.base.task1.Duck;
 import org.lessons.homework.homework3.base.task1.FlyException;
 
 public class homework3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FlyException {
         //Базовый уровень
         //Задача №1
         //1. Создать два класса, которые умеют летать: самолет и утка. Атрибут утки: isInjured (ранен),
@@ -31,16 +35,62 @@ public class homework3 {
         // Для утки:
         // Метод летать будет выкидывать ошибку FlyException (создать такой класс), если утка подстрелена,
         // иначе печатать на экран "утка летит"
-        Duck duck = new Duck(false);
-        Airplane airplane = new Airplane(253);
+        Duck duck = new Duck(true);
+        Duck duck1 = new Duck(false);
+        Airplane airplane = new Airplane(10);
+        Airplane airplane1 = new Airplane(-1);
+
+        try {
+            if (duck.isInjured() == true) {
+                duck.toFly();
 
 
-        duck.toFly();
-        if (duck.isInjured() == false) {
-            duck.toFly();
-        } else {
-            throw FlyException("Утка не летит");
+            } else {
+                throw new FlyException("Утка ранена");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
         }
+
+        try {
+            if (duck1.isInjured() == true) {
+                duck1.toFly();
+
+
+            } else {
+                throw new FlyException("Утка ранена");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+        }
+
+        try {
+            if (airplane.getCountPassengers() >= 0) {
+                airplane.toFly();
+
+            } else {
+                throw new FlyException("пассажиров в самолете меньше 0");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+        }
+
+        try {
+            if (airplane1.getCountPassengers() >= 0) {
+                airplane1.toFly();
+
+            } else {
+                throw new FlyException("пассажиров в самолете меньше 0");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+        }
+
+
 
 
         //Продвинутый уровень
@@ -58,6 +108,14 @@ public class homework3 {
         // роза: умееть пахнуть
         // роза: умеет цвести
         // папоротник: умеет цвести
+
+        Fir fir = new Fir();
+        Pine pine = new Pine();
+        Rose rose = new Rose();
+        Fern fern = new Fern();
+
+
+
 
 
         //Задача №2
