@@ -1,9 +1,6 @@
 package org.lessons.homework.homework3;
 
-import org.lessons.homework.homework3.advance.task1.Fern;
-import org.lessons.homework.homework3.advance.task1.Fir;
-import org.lessons.homework.homework3.advance.task1.Pine;
-import org.lessons.homework.homework3.advance.task1.Rose;
+import org.lessons.homework.homework3.advance.task1.*;
 import org.lessons.homework.homework3.base.task1.Airplane;
 import org.lessons.homework.homework3.base.task1.Duck;
 import org.lessons.homework.homework3.base.task1.FlyException;
@@ -113,6 +110,18 @@ public class homework3 {
         Pine pine = new Pine();
         Rose rose = new Rose();
         Fern fern = new Fern();
+
+        Tree[] trees = {pine,fir};
+        for(Tree tree : trees){
+            tree.canSmell();
+        }
+
+        rose.canSmell();
+
+        Plant[] plants = {rose,fern};
+        for (Plant plant : plants){
+            plant.canBloom();
+        }
 
 
 
