@@ -1,5 +1,9 @@
 package org.lessons.homework.homework3;
 
+import org.lessons.homework.homework3.base.task1.Airplane;
+import org.lessons.homework.homework3.base.task1.Duck;
+import org.lessons.homework.homework3.base.task1.FlyException;
+
 public class homework3 {
     public static void main(String[] args) {
         //Базовый уровень
@@ -23,6 +27,21 @@ public class homework3 {
         // Ошибка: утка ранена
         // самолет летит
         // Ошибка: пассажиров в самолете меньше 0
+
+        // Для утки:
+        // Метод летать будет выкидывать ошибку FlyException (создать такой класс), если утка подстрелена,
+        // иначе печатать на экран "утка летит"
+        Duck duck = new Duck(false);
+        Airplane airplane = new Airplane(253);
+
+
+        duck.toFly();
+        if (duck.isInjured() == false) {
+            duck.toFly();
+        } else {
+            throw FlyException("Утка не летит");
+        }
+
 
         //Продвинутый уровень
         //Задача №1
