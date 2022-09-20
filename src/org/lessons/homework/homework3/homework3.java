@@ -1,6 +1,7 @@
 package org.lessons.homework.homework3;
 
 import org.lessons.homework.homework3.advance.task1.*;
+import org.lessons.homework.homework3.advance.task2.*;
 import org.lessons.homework.homework3.base.task1.Airplane;
 import org.lessons.homework.homework3.base.task1.Duck;
 import org.lessons.homework.homework3.base.task1.FlyException;
@@ -88,8 +89,6 @@ public class homework3 {
         }
 
 
-
-
         //Продвинутый уровень
         //Задача №1
         //1. Создать следующую структуру из классов и интерфейсов:
@@ -111,20 +110,17 @@ public class homework3 {
         Rose rose = new Rose();
         Fern fern = new Fern();
 
-        Tree[] trees = {pine,fir};
-        for(Tree tree : trees){
+        Tree[] trees = {pine, fir};
+        for (Tree tree : trees) {
             tree.canSmell();
         }
 
         rose.canSmell();
 
-        Plant[] plants = {rose,fern};
-        for (Plant plant : plants){
+        Plant[] plants = {rose, fern};
+        for (Plant plant : plants) {
             plant.canBloom();
         }
-
-
-
 
 
         //Задача №2
@@ -140,6 +136,31 @@ public class homework3 {
         // Ожидание вывода на экран:
         // Часы тикают
         // Ошибка: Часы сломались.
+        Watch watchBroken = new Watch(true);
+        Watch watch = new Watch(false);
+        Worker worker1 = new Worker(watch);
+        Worker worker2 = new Worker(watchBroken);
+        Worker[] workers1 = {worker1};
+        Worker[] workers2 = {worker2};
+        Shop shop1 = new Shop(workers1);
+        Shop shop2 = new Shop(workers2);
+        Shop[] shops = {shop1, shop2};
+        Brand brand = new Brand(shops);
+
+        for (Shop shop : brand.getShops()) {
+            for (Worker worker : shop.getWorkers()) {
+                try {
+                    worker.getWatch().tick();
+                } catch (WatchBrokenError e) {
+                    System.out.println("ошибка-Часы сломались");
+                }
+
+
+            }
+
+
+        }
+
 
         // Экспертный уровень:
         // Предыстория: Мы находимся в статистическом институте. Хочется понять уровень миграции между регионами за месяц.
