@@ -12,17 +12,14 @@ public class Lesson2 {
         }
         boolean result = number1 == number2;
 
-        if (result){
+        if (result) {
             System.out.println("Ура числа до сих пор равны");
-        }
-        else {
+        } else {
             System.out.println("Числа не равны");
         }
 
 
-
-
-        if (number1 > 0){
+        if (number1 > 0) {
             System.out.println("число положительное");
         } else if (number1 == 0) {
             System.out.println("Число 0");
@@ -34,7 +31,7 @@ public class Lesson2 {
         String name = new String("Yuri");
         String name2 = new String("Yuri");
 
-        if (name == name2){
+        if (name == name2) {
             System.out.println("Имена равны");
         } else {
             System.out.println("Имена не равны");
@@ -68,38 +65,64 @@ public class Lesson2 {
         cats[2] = "Рыжик";
         cats[3] = "Кот";
         //for each
-       // for(String cat: cats){
-           // System.out.println(cat + " иди есть!");
-       // }
-       // for (int i = 0; i < cats.length; i+= 1) {
-            //System.out.println(cats[i] + " иди есть! Номер кота: " + (i+1));
 
-        //}
-        for (int i = 3; i >=0 ; i -= 1) {
-            System.out.println(cats[i]);
+//        for (String cat : cats) {
+//            System.out.println(cat + " иди есть");
+//        }
+//
+//        for (int i = 0; i < cats.length; i++) {
+//            System.out.println(cats[i] + " иди есть! номер кота " +(i+1));
+
+
+//        }
+        //вывести в обратном порядке котов
+        for (int i = 3; i >= 0; i--) {
+            System.out.println(cats[i] + " иди есть! номер кота " + (i + 1));
+
         }
+        //вывести на экран первых трех котов.
+        for (int i = 0; i < 3; i++) {
+            System.out.println(cats[i] + " иди есть! номер кота " + (i + 1));
 
 
-            //останавливает приложение
-            int count2 = 1;
-            while (count2 < 11){
-                if(count2 == 6){
-                    count2++;
-                    continue;
-                }
-                System.out.println(count2);
+        }
+        int count = 0;
+        while (count < 11) {
+            System.out.println(count);
+            break;
+
+        }
+        int count2 = 0;
+        while (count2 < 11) {
+            if (count2 == 6) {
                 count2++;
-            }
-            int count3= 100;
-            while(count3 > 0){
-                if(count3 % 3 == 0) {
-                    System.out.println(count3);
-                }
-                count3--;
-            }
-            Lesson3.main(new String[4]);
+                continue;
 
+            }
+            System.out.println(count2);
+            count2++;
 
         }
+        int count3 = 100;
+        while (count3 > 0) {
+            if (count3 % 3 == 0) {
+                System.out.println(count3);
+            }
+            count3--;
+        }
+        String[] names = {"Yuri", "Maksim", "Igor", "Petr"};
+        for (String name1 : names) {
+            if (name1.equals("Maksim")) {
+                System.out.println("Maks");
+                continue;
+            } else if (name1.equals("Igor")) {
+                break;
+            }
+            System.out.println(name1);
+        }
+
+
+
+    }
 }
 
