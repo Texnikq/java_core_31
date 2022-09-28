@@ -1,4 +1,4 @@
-package org.lessons.lesson2;
+package org.lessons.homework.homework1;
 
 public class homework1 {
     public static void main(String[] args) {
@@ -23,11 +23,10 @@ public class homework1 {
         //Произвести расчет индекса массы тела (вес) / (рост * рост) используя переменные, вывести на экран
         //Пример результата вывода на экран:
         //21.0
-        float height = 1.54f;
-        float weight = 176f;
-        float bmi = weight / (height * height);
-        String resultBmi = String.format("%.1f", bmi).replace(',', '.');
-        System.out.println(resultBmi);
+        double height = 1.54;
+        double weight = 176;
+        double bmi = weight / (height * height);
+        System.out.println(bmi);
 
         //Задача №3
         //Создать из массива букв a,b,c,d,e, строку,вывести на экран, поменять в массиве 4 букву по счету на h,
