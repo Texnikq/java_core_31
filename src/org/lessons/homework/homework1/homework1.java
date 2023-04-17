@@ -1,5 +1,7 @@
 package org.lessons.homework.homework1;
 
+import java.util.Arrays;
+
 public class homework1 {
     public static void main(String[] args) {
         //Базовый уровень
@@ -31,28 +33,34 @@ public class homework1 {
         //Задача №3
         //Создать из массива букв a,b,c,d,e, строку,вывести на экран, поменять в массиве 4 букву по счету на h,
         //и снова создать строку, вывести на экран
-        String[] seasons = {"a", "b", "c", "d", "e"};
+        String[] arrays = {"a", "b", "c", "d", "e"};
 
 
-        for (String sea: seasons) {
-            System.out.print(sea);
+        for (String array : arrays) {
+            System.out.print(array);
 
         }
-        seasons[3] = "h";
-        for (String sea: seasons) {
-            System.out.print(sea);
+        arrays[3] = "h";
+        System.out.println();
+        for (String array : arrays) {
+            System.out.print(array);
         }
+        System.out.println();
+
 
         // Домашка
         // Задание №4 - Написать цикл, который выводит через пробел 100 чисел с приставкой "a".
         // Ожидаемый результат: 1а 2а 3а .. 100а
         for (int i = 1; i < 101; i++) {
             System.out.print(i + "a ");
+
         }
+        System.out.println();
+
 
         // Задание №5
         // Дано:
-        int ageChildren = 10;
+        int ageChildren = 2;
         // Задача: Написать условную конструкцию, которая в зависимости от возраста ребенка, отправляет его в учебное заведение
         // если ребенку до 6 лет то в сад, если до 11 лет в младшую школу, если до 17 лет в среднюю школу, иначе в университет
         // Отправляет - имеется в виду, печатает на экран: "пошел с сад", "пошел в младшую школу" и т.д.
@@ -95,22 +103,17 @@ public class homework1 {
         //1,2,5,7,10,2,3,2,17,15,2,6,10,119,150
         //(первый массив - 1,2,5,7,10), (второй массив - 2,3,2,17,15),
         //(результат перемножения - (1*2), (2*3), (5*2), (7*17), (10*15)
-        int[] firstArray = {1, 2, 5, 7, 10};
-        int[] secondArray = {2, 3, 2, 17, 15};
-
-        for (int i = 0; i < 5; i++) {
-            System.out.print(firstArray[i] + ",");
+        int[] numbers1 = {1, 2, 5, 7, 10};
+        int[] numbers2 = {2, 3, 2, 17, 15};
+        int[] numbers3 = new int[numbers1.length + numbers2.length + numbers2.length];
+        for (int i = 0; i <numbers1.length ; i++) {
+            numbers3[i] = numbers1[i];
+            numbers3[i + 5] = numbers2[i];
+            numbers3[i + 10] = numbers1[i] * numbers2[i];
         }
-        for (int i = 0; i < 5; i++) {
-            System.out.print(secondArray[i] + ",");
 
-        }
-        for (int i = 0; i < 4; i++) {
-            System.out.print(firstArray[i] * secondArray[i] + ",");
 
-        }
-        System.out.print(firstArray[4] * secondArray[4]);
-
+        System.out.println(Arrays.toString(numbers3));
         //Задача №4
         //В слове "Hello world!" заменить l на r, сделать все буквы заглавными, выбрать первые 8 символов
 
@@ -126,14 +129,13 @@ public class homework1 {
         // Вывести на экран, количество итераций, которое потребовалось, чтобы дойти до миллиона.
         // Если число отрицательное, то сразу заканчиваем цикл, ничего не выводя.
         // Внимание: число может измениться, и не должно приводить к изменению вашего кода.
-        while (result < 0.1) {
-            if (result < 0) {
-                break;
-            }
-            result += increment;
+        int count = 0;
+        while (result < 1_000_000){
+        result += increment;
+        count++;
 
         }
-        System.out.println();   //ДО КОНЦА НЕ СМОГ РЕШИТЬ.
+        System.out.println(count);
 
         // Задание №6
         // Дано:
@@ -157,13 +159,31 @@ public class homework1 {
             System.out.println("Хоть на оливьешку хватило остатков");
         } else if (vegetables) {
             System.out.println("Вот, овощной салат!");
-        }
-        else {
+        } else {
             System.out.println("У меня ничего нет, сидим голодные");
         }
 
 
-
         //Внимание! Если продвинутая для вас оказалась простой - пишите мне. Дам экспертную
+        //Экспертный уровень
+        //Задача №1
+        //Создать метод маскирования персональных данных, который:
+        //Телефон (до/после маскирования): 79991113344 / 7999***3344
+        //Email (до/после маскирования): test@yandex.ru / tes*@******.ru, my_mail@gmail.com / my_mai*@*****.com
+        //Фио (до/после маскирования): Иванов Иван Иванович / И****в Иван И.
+        //
+        //Входящие параметры: String text
+        //Возвращаемый результат: String
+        //
+        //Примеры возможного текста:
+        //<client>(Какие то данные)<data>79991113344;test@yandex.ru;Иванов Иван Иванович</data></client> - "<client>(Какие то данные)<data>7999***3344;tes*@******.ru;И****в Иван И.</data></client>"
+        //<client>(Какие то данные)<data></data></client> - вернет тоже (никаких ошибок)
+        //<client>(Какие то данные)<data>Иванов Иван Иванович;79991113344</data></client> - "<client>(Какие то данные)<data>И****в Иван И.;7999***3344</data></client>"
+
+        //Используемые технологии: String.find, String.replaceAll, String.split, String.join, String.contains, String.substring
+        //Регулярные выражения, класс StringBuilder
+        String word = " fuck";
+        String wordLenght = word.substring(1,3);
+        System.out.println(wordLenght);
     }
 }
